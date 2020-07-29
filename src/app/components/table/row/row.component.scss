@@ -1,0 +1,18 @@
+//@import "../wrapper/wrapper.component";
+#user-row-container-wrapper, form #user-row-container-wrapper {
+  justify-content: start;
+  display: flex;
+  width: 90%;
+  .user-row {
+    flex: 0 25%;
+    justify-content: start;
+    display: flex;
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+}
+
+#role {
+  text-transform: capitalize;
+}

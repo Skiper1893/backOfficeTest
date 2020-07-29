@@ -1,0 +1,68 @@
+  <div [formGroup]="userForm" id="user-row-container-wrapper">
+    <div class="user-row">
+      <div class="user-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>First name</mat-label>
+          <input matInput formControlName="firstname">
+          <mat-error
+            *ngIf="helperService.getErrorMessage(userForm, 'firstname')">
+            {{ helperService.getErrorMessage(userForm, 'firstname') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="user-row">
+      <div class="user-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>Last name</mat-label>
+          <input matInput formControlName="lastname">
+          <mat-error
+            *ngIf="helperService.getErrorMessage(userForm, 'lastname')">
+            {{ helperService.getErrorMessage(userForm, 'lastname') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="user-row">
+      <div class="user-row-wrapper">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email">
+          <mat-error
+            *ngIf="helperService.getErrorMessage(userForm, 'email')">
+            {{ helperService.getErrorMessage(userForm, 'email') }}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="user-row" id="role">
+      <div class="user-row-wrapper">
+        <mat-form-field appearance="fill">
+          <mat-label>Role</mat-label>
+          <mat-select formControlName="role">
+            <mat-option *ngFor="let item of roles" [value]="item">
+              {{ item }}
+            </mat-option>
+            <mat-error
+              *ngIf="helperService.getErrorMessage(userForm, 'role')">
+              {{ helperService.getErrorMessage(userForm, 'role') }}
+            </mat-error>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="user-row">
+      <div class="user-row-wrapper">
+        <div class="icons-block">
+          <div id="icon-wrapper">
+            <button class="icon left" (click)="changeState()"><fa-icon [icon]="faBan"></fa-icon></button>
+            <button class="icon right" (click)="create(userForm)"><fa-icon [icon]="faCheck"></fa-icon></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

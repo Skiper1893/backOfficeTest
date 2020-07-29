@@ -1,0 +1,34 @@
+<div id="table-container">
+  <div class="wrapper">
+    <div id="table-header">
+      <div id="table-header-wrapper">
+        <div class="table-header-item" *ngFor="let header of tableHeaders">
+          {{ header }}
+        </div>
+        <div class="table-header-item">
+          <button (click)="changeStateAddNewRow()">
+            Add New Row
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <ng-container *ngIf="addRowDataState">
+      <div class="user-container" app-add-row
+          (setStateAddNewRow)="changeStateAddNewRow()"
+      ></div>
+    </ng-container>
+
+    <ng-container *ngIf="_elements">
+      <div class="user-container" app-row
+           [style.backgroundColor]="roleColors[item.role]"
+           *ngFor="let item of _elements;
+            index as i"
+           [item]="item"
+           [editable]="i === editedComponent"
+           (setEdit)="setEditedComponent(i)"
+      >
+      </div>
+    </ng-container>
+  </div>
+</div>

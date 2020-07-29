@@ -1,0 +1,10 @@
+#table-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-top: 2em;
+  #table-inner {
+    border: 1px solid #ceb8b8;
+    width: 95%;
+  }
+}

@@ -1,0 +1,19 @@
+<div id="header-container">
+  <div id="filter-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Role</mat-label>
+      <mat-select [(ngModel)]="selectedOption" (selectionChange)="changeType()">
+        <mat-option *ngFor="let item of roles" [value]="item">
+          {{ item }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div id="header-search-bar">
+    <mat-form-field appearance="outline">
+      <mat-label>Search</mat-label>
+      <input matInput [(ngModel)]="searchValue" (ngModelChange)="search()">
+    </mat-form-field>
+  </div>
+</div>

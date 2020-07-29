@@ -1,0 +1,12 @@
+#header-container {
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 2em;
+  #header-search-bar .mat-form-field{
+    width: 400px;
+  }
+}
+mat-option, mat-form-field {
+  text-transform: capitalize;
+}

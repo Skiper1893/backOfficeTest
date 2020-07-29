@@ -1,0 +1,77 @@
+<div [formGroup]="userForm" id="user-row-container-wrapper">
+  <div class="user-row">
+    <div class="user-row-wrapper">
+      <span *ngIf="!editable">{{ _item.firstname }}</span>
+      <mat-form-field *ngIf="editable" appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstname">
+        <mat-error
+          *ngIf="helperService.getErrorMessage(userForm, 'firstname')">
+          {{ helperService.getErrorMessage(userForm, 'firstname') }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="user-row">
+    <div class="user-row-wrapper">
+      <span *ngIf="!editable">{{ _item.lastname }}</span>
+      <mat-form-field *ngIf="editable" appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstname">
+        <mat-error
+          *ngIf="helperService.getErrorMessage(userForm, 'firstname')">
+          {{ helperService.getErrorMessage(userForm, 'firstname') }}
+        </mat-error>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="user-row">
+    <div class="user-row-wrapper">
+      <span *ngIf="!editable">{{ _item.email }}</span>
+      <mat-form-field *ngIf="editable" appearance="outline">
+        <mat-label>First name</mat-label>
+        <input matInput formControlName="firstname">
+        <mat-error
+          *ngIf="helperService.getErrorMessage(userForm, 'firstname')">
+          {{ helperService.getErrorMessage(userForm, 'firstname') }}
+        </mat-error>
+      </mat-form-field>`
+    </div>
+  </div>
+
+  <div class="user-row" id="role">
+    <div class="user-row-wrapper">
+      <span *ngIf="!editable">{{ _item.role }}</span>
+      <mat-form-field *ngIf="editable" appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option *ngFor="let item of roles" [value]="item">
+            {{ item }}
+          </mat-option>
+          <mat-error
+            *ngIf="helperService.getErrorMessage(userForm, 'role')">
+            {{ helperService.getErrorMessage(userForm, 'role') }}
+          </mat-error>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+
+  <div class="user-row">
+    <div class="user-row-wrapper">
+      <div class="icons-block">
+        <div id="icon-wrapper">
+          <button *ngIf="!editable && !deleteReq" (click)="choseEdited()" class="icon left"><fa-icon [icon]="faPencil"></fa-icon></button>
+          <button *ngIf="editable" (click)="choseEdited()" class="icon left"><fa-icon [icon]="faBan"></fa-icon></button>
+          <button *ngIf="!editable && !deleteReq" (click)="runDeleteRequest()"class="icon right"><fa-icon [icon]="faTrash"></fa-icon></button>
+          <button *ngIf="deleteReq" (click)="confirmDelete()" class="icon left">Yes<fa-icon [icon]="faCheck"></fa-icon></button>
+          <button *ngIf="deleteReq" (click)="runDeleteRequest()" class="icon right">No<fa-icon [icon]="faBan"></fa-icon></button>
+          <button *ngIf="editable" (click)="updateUser()" class="icon right"><fa-icon [icon]="faSave"></fa-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
